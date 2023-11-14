@@ -21,9 +21,8 @@ int commandSelector() {
 
 int main() {
     int command;
-    enum Commands existCommand = EXIT;
 
-    while(command != existCommand) {
+    while(command != EXIT) {
         command = commandSelector();
 
         switch(command) {
