@@ -1,0 +1,16 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+      {
+        "name": "Debug",
+        "type": "node",
+        "request": "launch",
+        "program": "${fileDirname}/${fileBasenameNoExtension}", // Path to the compiled executable
+        "args": [],
+        "cwd": "${fileDirname}",
+        
+        "preLaunchTask": "Compilar e Executar", // Reference to the task defined in tasks.json
+      }
+    ]
+  }
+  
