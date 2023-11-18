@@ -6,10 +6,8 @@ enum Commands{
     SUB
 };
 
-int commandSelector() {
+int readInt() {
     int tmp;
-
-    printf("Choose a command:\n");
 
     if(scanf("%d", &tmp) != 1) {
         while(getchar() != '\n');
@@ -17,6 +15,23 @@ int commandSelector() {
     }
 
     return tmp;
+}
+
+int commandSelector() {
+    printf("choice a command:\n");
+    printf("(1) Add: \n");
+    printf("(2) Sub: \n");
+    return readInt();
+}
+
+void commandAdd() {
+    int x, y;
+    printf("Define x\n");
+    x = readInt();
+    printf("Define y\n");
+    y = readInt();
+
+    printf("Total: %d\n", x + y);
 }
 
 int main() {
@@ -28,6 +43,9 @@ int main() {
         switch(command) {
             case EXIT:
                 printf("Bye...\n");
+                break;
+            case ADD:
+                commandAdd();
                 break;
             default:
                 printf("Wrong selection!\n");
