@@ -6,32 +6,47 @@ enum Commands{
     SUB
 };
 
-int readInt() {
+int readInt(char msg[]) {
     int tmp;
 
     if(scanf("%d", &tmp) != 1) {
         while(getchar() != '\n');
-        return -1;
+        printf("%s\n", msg);
+        return readInt(msg);
     }
 
     return tmp;
 }
 
 int commandSelector() {
-    printf("choice a command:\n");
-    printf("(1) Add: \n");
-    printf("(2) Sub: \n");
-    return readInt();
+    printf("Choice a command:\n");
+    printf("(%d) Add: \n", ADD);
+    printf("(%d) Sub: \n", SUB);
+    return readInt("Only Integers!");
 }
 
 void commandAdd() {
     int x, y;
-    printf("Define x\n");
-    x = readInt();
-    printf("Define y\n");
-    y = readInt();
 
+    printf("Define x\n");
+    x = readInt("Only Integers!");
+
+    printf("Define y\n");
+    y = readInt("Only Integers!");
+        
     printf("Total: %d\n", x + y);
+}
+
+void commandSub() {
+    int x, y;
+
+    printf("Define x\n");
+    x = readInt("Only Integers!");
+
+    printf("Define y\n");
+    y = readInt("Only Integers!");
+
+    printf("Total: %d\n", x - y);
 }
 
 int main() {
@@ -46,6 +61,9 @@ int main() {
                 break;
             case ADD:
                 commandAdd();
+                break;
+            case SUB:
+                commandSub();
                 break;
             default:
                 printf("Wrong selection!\n");
