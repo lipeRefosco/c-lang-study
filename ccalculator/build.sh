@@ -1,2 +1,2 @@
-gcc ccalculator.c
+gcc *.c
 ./a.out
