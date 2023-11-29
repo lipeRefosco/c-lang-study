@@ -1,10 +1,12 @@
 from ctypes import *
 
-so_file = "./my_function.so"
-my_functions = CDLL(so_file)
+class TestMyFunctionInC:
+    
+    so_file = "../my_function.so"
+    my_function = CDLL(so_file)
 
-print(type(my_functions))
-
-print(my_functions.square(2))
-print(my_functions.square(3))
-print(my_functions.square(4))
+    def test_3_pow(self):
+        given = 3
+        expect = 9
+        result = self.my_function.square(given) == expect
+        assert result
